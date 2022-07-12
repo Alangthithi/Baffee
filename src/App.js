@@ -1,10 +1,22 @@
 import "./App.css";
-import Header from "./components/Layouts/Header";
+import Layout from "./components/Layouts/Header";
+import Home from "./components/Pages/Home";
+import Menu from "./components/Pages/Menu";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="menu" element={<Menu />} />
+            {/* <Route path="contact" element={<Contact />} /> */}
+            {/* <Route path="*" element={<NoPage />} /> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
